@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
@@ -16,24 +15,31 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Afkar Ahmad</title>
+  <title>Afkar Ahmad | Full-Stack Developer & Designer</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Afkar Ahmad - Full-Stack Developer & Designer. Explore my portfolio, projects, and get in touch for collaborations.">
+  <meta name="keywords" content="Afkar Ahmad, Web Developer, Full-Stack, Portfolio, Designer, Responsive Websites">
+  <meta name="author" content="Afkar Ahmad">
+  
+  <!-- Open Graph (for social media sharing) -->
+  <meta property="og:title" content="Afkar Ahmad | Full-Stack Developer & Designer">
+  <meta property="og:description" content="Check out Afkar Ahmad's portfolio showcasing modern, responsive websites and apps.">
+  <meta property="og:image" content="https://picsum.photos/600/400?random=11">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourwebsite.com">
+
+  <!-- Icons & Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
   <style>
-    /* Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body { background: #0f0f0f; color: #f0f0f0; line-height: 1.6; }
 
-    /* Navigation */
     nav {
-      position: sticky;
-      top: 0;
-      background: #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      z-index: 1000;
-      border-bottom: 1px solid #222;
+      position: sticky; top: 0; background: #111;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 30px; border-bottom: 1px solid #222; z-index: 1000;
     }
     nav .logo { font-size: 1.8rem; font-weight: bold; color: #00d4ff; }
     nav ul { display: flex; list-style: none; }
@@ -41,65 +47,34 @@
     nav ul li a { text-decoration: none; color: #f0f0f0; font-weight: 500; transition: 0.3s; }
     nav ul li a:hover { color: #00d4ff; }
 
-    /* Hero Section */
     header {
-      height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: url('https://picsum.photos/1600/900?grayscale') center/cover no-repeat;
+      height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; background: url('https://picsum.photos/1600/900?grayscale') center/cover no-repeat;
       position: relative;
     }
     header::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6);
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6);
     }
-    header h1 {
-      font-size: 3rem;
-      z-index: 1;
-      color: #00d4ff;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 15px;
-      z-index: 1;
-      color: #fff;
-    }
+    header h1, header p, header a { position: relative; z-index: 1; }
+    header h1 { font-size: 3rem; color: #00d4ff; }
+    header p { font-size: 1.2rem; margin-top: 15px; color: #fff; }
     header .btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 25px;
-      border: 2px solid #00d4ff;
-      color: #00d4ff;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 5px;
-      transition: 0.3s;
-      z-index: 1;
+      display: inline-block; margin-top: 25px; padding: 12px 25px;
+      border: 2px solid #00d4ff; color: #00d4ff; text-decoration: none;
+      font-weight: 600; border-radius: 5px; transition: 0.3s;
     }
     header .btn:hover { background: #00d4ff; color: #111; }
 
-    /* Sections */
-    section { padding: 60px 20px; max-width: 1200px; margin: auto; }
-    section h2 { font-size: 2.5rem; color: #00d4ff; text-align: center; margin-bottom: 40px; }
+    main section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+    main section h2 { font-size: 2.5rem; color: #00d4ff; text-align: center; margin-bottom: 40px; }
 
-    /* About */
     #about p { text-align: center; max-width: 800px; margin: auto; color: #ccc; }
 
-    /* Portfolio */
     .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;
     }
     .card {
-      background: #1a1a1a;
-      border-radius: 10px;
-      overflow: hidden;
+      background: #1a1a1a; border-radius: 10px; overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .card img { width: 100%; height: 180px; object-fit: cover; }
@@ -108,15 +83,12 @@
     .card .card-body p { color: #ccc; font-size: 0.95rem; }
     .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,212,255,0.4); }
 
-    /* Contact */
     #contact p { text-align: center; color: #ccc; margin-bottom: 10px; }
     #contact a { color: #00d4ff; text-decoration: none; transition: 0.3s; }
     #contact a:hover { color: #fff; }
 
-    /* Footer */
     footer { background: #111; color: #777; text-align: center; padding: 20px; margin-top: 40px; }
 
-    /* Responsive */
     @media(max-width:768px){
       header h1 { font-size: 2.5rem; }
       header p { font-size: 1rem; }
@@ -127,6 +99,7 @@
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav>
     <div class="logo">Afkar Ahmad</div>
     <ul>
@@ -136,52 +109,66 @@
     </ul>
   </nav>
 
+  <!-- Hero -->
   <header>
     <h1>Afkar Ahmad</h1>
     <p>Full-Stack Developer & Designer</p>
     <a href="#contact" class="btn">Get in Touch</a>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I'm Afkar Ahmad, a passionate developer who loves building modern, responsive websites and web applications. I create projects that are both functional and visually striking.</p>
-  </section>
+  <!-- Main Content -->
+  <main>
+    <!-- About -->
+    <section id="about">
+      <h2>About Me</h2>
+      <article>
+        <p>Hello! I'm <strong>Afkar Ahmad</strong>, a passionate developer who creates modern, SEO-friendly, responsive websites and web applications that look stunning on all devices.</p>
+      </article>
+    </section>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio-grid">
-      <div class="card">
-        <img src="https://picsum.photos/400/300?random=1" alt="Project 1">
-        <div class="card-body">
-          <h3>Project One</h3>
-          <p>A sleek web application with a responsive design and smooth animations.</p>
-        </div>
+    <!-- Portfolio -->
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <div class="portfolio-grid">
+        <article class="card">
+          <img src="https://picsum.photos/400/300?random=1" alt="Project One - Responsive Web App">
+          <div class="card-body">
+            <h3>Project One</h3>
+            <p>A sleek responsive web application with modern design and smooth animations.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/400/300?random=2" alt="Project Two - Interactive Dashboard">
+          <div class="card-body">
+            <h3>Project Two</h3>
+            <p>An interactive dashboard with data visualization and a user-friendly interface.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/400/300?random=3" alt="Project Three - Mobile-First Website">
+          <div class="card-body">
+            <h3>Project Three</h3>
+            <p>A mobile-first website optimized for speed, accessibility, and SEO performance.</p>
+          </div>
+        </article>
       </div>
-      <div class="card">
-        <img src="https://picsum.photos/400/300?random=2" alt="Project 2">
-        <div class="card-body">
-          <h3>Project Two</h3>
-          <p>An interactive dashboard with modern UI components and charts.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://picsum.photos/400/300?random=3" alt="Project 3">
-        <div class="card-body">
-          <h3>Project Three</h3>
-          <p>A mobile-first website optimized for performance and speed.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:afkar@example.com">afkar@example.com</a></p>
-    <p>Social: <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a> | <a href="#"><i class="fab fa-github"></i> GitHub</a> | <a href="#"><i class="fab fa-twitter"></i> Twitter</a></p>
-  </section>
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:afkar@example.com">afkar@example.com</a></p>
+      <p>
+        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a> | 
+        <a href="#"><i class="fab fa-github"></i> GitHub</a> | 
+        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+      </p>
+    </section>
+  </main>
 
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Afkar Ahmad. All rights reserved.
+    <p>&copy; 2025 Afkar Ahmad. All rights reserved.</p>
   </footer>
 
 </body>
