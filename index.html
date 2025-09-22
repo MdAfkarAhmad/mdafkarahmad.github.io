@@ -1,6 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Afkar Ahmad — Portfolivyo</title>
+  <meta name="description" content="Portfolio of Afkar Ahmad — Full Stack Developer, showcasing projects, skills, and contact info." />
+  <meta property="og:title" content="Afkar Ahmad — Portfolio" />
+  <meta property="og:description" content="Portfolio of Afkar Ahmad, Full Stack Developer" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <style>
+    /* same CSS from previous template for consistency */
+    :root{
+      --bg:#0f172a;--card:#0b1220;--muted:#94a3b8;--accent:#06b6d4;
+      --glass: rgba(255,255,255,0.03);--radius:14px;--max-width:1100px;
+      --gap:1.25rem;--transition:220ms cubic-bezier(.22,.9,.24,1);
+      --ff: system-ui, -apple-system, "Segoe UI", Roboto;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#061026 80%);
+      color:#e6eef5;font-family:var(--ff);line-height:1.5;
+      padding: clamp(1rem,2.5vw,2rem);display:flex;justify-content:center}
+    .wrap{max-width:var(--max-width);width:100%}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+    .brand{font-weight:800;font-size:1.3rem;text-decoration:none;color:white}
+    .nav-links{display:flex;gap:1rem;list-style:none}
+    .nav-links a{color:var(--muted);text-decoration:none}
+    .cta{background:var(--accent);border:none;padding:0.5rem 1rem;border-radius:8px;font-weight:700;cursor:pointer;color:#021428}
+    section{margin-bottom:2rem}
+    h1,h2,h3{margin:0 0 0.5rem}
+    .hero{display:grid;grid-template-columns:1fr 300px;gap:1rem;align-items:center}
+    .hero img{width:100%;border-radius:12px}
+    .projects,.skills{display:grid;gap:1rem}
+    .projects{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+    .card{background:var(--card);padding:1rem;border-radius:12px}
+    footer{margin-top:2rem;text-align:center;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a href="#" class="brand">Afkar Ahmad</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" id="about">
+      <div>
+        <h1>Hello, I'm Afkar Ahmad</h1>
+        <p>Full Stack Developer specializing in modern web apps, mobile development, and scalable backend solutions.</p>
+        <button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
+      </div>
+      <img src="https://via.placeholder.com/300x300.png?text=Profile+Photo" alt="Profile Photo">
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="card">
+          <h3>Course Selling Website</h3>
+          <p>Built with Next.js, Facebook login, and Instamojo payment integration.</p>
+        </div>
+        <div class="card">
+          <h3>Android App</h3>
+          <p>Professional Android app built using AIDE, with offline support and clean UI.</p>
+        </div>
+        <div class="card">
+          <h3>Portfolio Website</h3>
+          <p>Responsive SEO-friendly personal portfolio (this one!).</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="card">JavaScript / TypeScript</div>
+        <div class="card">React / Next.js</div>
+        <div class="card">Node.js / Express</div>
+        <div class="card">Android (Java, Kotlin)</div>
+        <div class="card">SEO Optimization</div>
+        <div class="card">Database: MySQL, MongoDB</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+      <p>LinkedIn: <a href="#">linkedin.com/in/afkarahmad</a></p>
+      <p>GitHub: <a href="#">github.com/afkarahmad</a></p>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> Afkar Ahmad — All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Year auto -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- OneSignal SDK -->
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script>
     window.OneSignalDeferred = window.OneSignalDeferred || [];
@@ -8,254 +115,6 @@
       await OneSignal.init({
         appId: "844a9b6d-fba4-494e-9e04-ba0f0fc5dc64",
       });
-    });
-  </script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Afkar Ahmad | Full-Stack Developer & Designer</title>
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Afkar Ahmad - Full-Stack Developer & Designer. Explore my portfolio, projects, and get in touch for collaborations.">
-  <meta name="keywords" content="Afkar Ahmad, Web Developer, Full-Stack, Portfolio, Designer, Responsive Websites">
-  <meta name="author" content="Afkar Ahmad">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Afkar Ahmad | Full-Stack Developer & Designer">
-  <meta property="og:description" content="Check out Afkar Ahmad's portfolio showcasing modern, responsive websites and apps.">
-  <meta property="og:image" content="https://picsum.photos/600/400?random=11">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourwebsite.com">
-
-  <!-- Icons & Fonts -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    body { background: #0f0f0f; color: #f0f0f0; line-height: 1.6; }
-
-    /* Navigation */
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(15, 15, 15, 0.8);
-      backdrop-filter: blur(12px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 40px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      z-index: 1000;
-    }
-    nav .logo {
-      font-size: 1.7rem;
-      font-weight: 700;
-      color: #00d4ff;
-      letter-spacing: 1px;
-    }
-    nav ul {
-      display: flex;
-      list-style: none;
-    }
-    nav ul li {
-      margin-left: 30px;
-      position: relative;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #f0f0f0;
-      font-weight: 500;
-      padding: 8px 0;
-      transition: color 0.3s;
-    }
-    nav ul li a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0%;
-      height: 2px;
-      background: #00d4ff;
-      transition: width 0.3s ease-in-out;
-    }
-    nav ul li a:hover {
-      color: #00d4ff;
-    }
-    nav ul li a:hover::after {
-      width: 100%;
-    }
-
-    /* Hamburger */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    .menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background: #f0f0f0;
-      margin: 4px 0;
-      border-radius: 2px;
-      transition: 0.3s;
-    }
-
-    /* Mobile Styles */
-    @media(max-width: 768px){
-      nav {
-        padding: 12px 20px;
-      }
-      nav ul {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        background: rgba(15, 15, 15, 0.95);
-        display: none;
-      }
-      nav ul.active {
-        display: flex;
-      }
-      nav ul li {
-        margin: 15px 0;
-      }
-      .menu-toggle {
-        display: flex;
-      }
-    }
-
-    /* Hero */
-    header {
-      height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; background: url('https://picsum.photos/1600/900?grayscale') center/cover no-repeat;
-      position: relative;
-    }
-    header::after {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6);
-    }
-    header h1, header p, header a { position: relative; z-index: 1; }
-    header h1 { font-size: 3rem; color: #00d4ff; }
-    header p { font-size: 1.2rem; margin-top: 15px; color: #fff; }
-    header .btn {
-      display: inline-block; margin-top: 25px; padding: 12px 25px;
-      border: 2px solid #00d4ff; color: #00d4ff; text-decoration: none;
-      font-weight: 600; border-radius: 5px; transition: 0.3s;
-    }
-    header .btn:hover { background: #00d4ff; color: #111; }
-
-    /* Sections */
-    main section { padding: 60px 20px; max-width: 1200px; margin: auto; }
-    main section h2 { font-size: 2.5rem; color: #00d4ff; text-align: center; margin-bottom: 40px; }
-
-    #about p { text-align: center; max-width: 800px; margin: auto; color: #ccc; }
-
-    .portfolio-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;
-    }
-    .card {
-      background: #1a1a1a; border-radius: 10px; overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card img { width: 100%; height: 180px; object-fit: cover; }
-    .card .card-body { padding: 20px; }
-    .card .card-body h3 { margin-bottom: 10px; color: #00d4ff; }
-    .card .card-body p { color: #ccc; font-size: 0.95rem; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,212,255,0.4); }
-
-    #contact p { text-align: center; color: #ccc; margin-bottom: 10px; }
-    #contact a { color: #00d4ff; text-decoration: none; transition: 0.3s; }
-    #contact a:hover { color: #fff; }
-
-    footer { background: #111; color: #777; text-align: center; padding: 20px; margin-top: 40px; }
-  </style>
-</head>
-<body>
-
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">Afkar Ahmad</div>
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul id="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero -->
-  <header>
-    <h1>Afkar Ahmad</h1>
-    <p>Full-Stack Developer & Designer</p>
-    <a href="#contact" class="btn">Get in Touch</a>
-  </header>
-
-  <!-- Main Content -->
-  <main>
-    <!-- About -->
-    <section id="about">
-      <h2>About Me</h2>
-      <article>
-        <p>Hello! I'm <strong>Afkar Ahmad</strong>, a passionate developer who creates modern, SEO-friendly, responsive websites and web applications that look stunning on all devices.</p>
-      </article>
-    </section>
-
-    <!-- Portfolio -->
-    <section id="portfolio">
-      <h2>Portfolio</h2>
-      <div class="portfolio-grid">
-        <article class="card">
-          <img src="https://picsum.photos/400/300?random=1" alt="Project One - Responsive Web App">
-          <div class="card-body">
-            <h3>Project One</h3>
-            <p>A sleek responsive web application with modern design and smooth animations.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img src="https://picsum.photos/400/300?random=2" alt="Project Two - Interactive Dashboard">
-          <div class="card-body">
-            <h3>Project Two</h3>
-            <p>An interactive dashboard with data visualization and a user-friendly interface.</p>
-          </div>
-        </article>
-        <article class="card">
-          <img src="https://picsum.photos/400/300?random=3" alt="Project Three - Mobile-First Website">
-          <div class="card-body">
-            <h3>Project Three</h3>
-            <p>A mobile-first website optimized for speed, accessibility, and SEO performance.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <p>Email: <a href="mailto:afkar@example.com">afkar@example.com</a></p>
-      <p>
-        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a> | 
-        <a href="#"><i class="fab fa-github"></i> GitHub</a> | 
-        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-      </p>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Afkar Ahmad. All rights reserved.</p>
-  </footer>
-
-  <script>
-    const toggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
-    toggle.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-      toggle.classList.toggle("open");
     });
   </script>
 </body>
