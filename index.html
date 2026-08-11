@@ -1,878 +1,1330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-<title>Md Afkar Ahmad | Full Stack Web Developer</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter',sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#050816;
-    color:white;
-    overflow-x:hidden;
-}
-
-/* BACKGROUND */
-
-.background{
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    overflow:hidden;
-}
-
-.blur{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(120px);
-    opacity:.5;
-}
-
-.blur1{
-    width:380px;
-    height:380px;
-    background:#7c3aed;
-    top:-120px;
-    left:-100px;
-}
-
-.blur2{
-    width:350px;
-    height:350px;
-    background:#06b6d4;
-    right:-120px;
-    top:180px;
-}
-
-.blur3{
-    width:300px;
-    height:300px;
-    background:#ec4899;
-    bottom:-100px;
-    left:40%;
-}
-
-/* NAVBAR */
-
-nav{
-    width:100%;
-    position:fixed;
-    top:0;
-    z-index:999;
-    padding:22px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:rgba(255,255,255,.04);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(255,255,255,.06);
-}
-
-.logo{
-    font-size:28px;
-    font-weight:800;
-    letter-spacing:.5px;
-    background:linear-gradient(to right,#8b5cf6,#06b6d4);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:35px;
-}
-
-nav ul a{
-    text-decoration:none;
-    color:#cbd5e1;
-    transition:.3s;
-    font-size:15px;
-}
-
-nav ul a:hover{
-    color:white;
-}
-
-/* HERO */
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:140px 8%;
-    gap:80px;
-    flex-wrap:wrap;
-}
-
-.left{
-    flex:1;
-    min-width:290px;
-}
-
-.badge{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:12px 22px;
-    border-radius:40px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
-    color:#cbd5e1;
-    margin-bottom:28px;
-    font-size:14px;
-}
-
-.left h1{
-    font-size:78px;
-    line-height:1.05;
-    margin-bottom:25px;
-    font-weight:800;
-}
-
-.gradient{
-    background:linear-gradient(to right,#8b5cf6,#06b6d4);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.left p{
-    font-size:18px;
-    color:#94a3b8;
-    line-height:1.9;
-    max-width:700px;
-    margin-bottom:40px;
-}
-
-.buttons{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:17px 32px;
-    border-radius:16px;
-    text-decoration:none;
-    font-weight:600;
-    transition:.4s;
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-}
-
-.primary{
-    background:linear-gradient(135deg,#8b5cf6,#06b6d4);
-    color:white;
-    box-shadow:0 15px 40px rgba(124,58,237,.35);
-}
-
-.secondary{
-    border:1px solid rgba(255,255,255,.08);
-    color:white;
-    background:rgba(255,255,255,.04);
-}
-
-.btn:hover{
-    transform:translateY(-6px);
-}
-
-/* RIGHT SIDE */
-
-.right{
-    flex:1;
-    display:flex;
-    justify-content:center;
-    min-width:320px;
-}
-
-.card{
-    width:420px;
-    padding:45px;
-    border-radius:35px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
-    backdrop-filter:blur(25px);
-    box-shadow:0 25px 80px rgba(0,0,0,.45);
-    position:relative;
-    overflow:hidden;
-}
-
-.card::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(6,182,212,.08));
-}
-
-.card-content{
-    position:relative;
-    z-index:2;
-}
-
-.profile{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    background:linear-gradient(135deg,#8b5cf6,#06b6d4);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:42px;
-    font-weight:700;
-    margin-bottom:30px;
-}
-
-.card h2{
-    font-size:34px;
-    margin-bottom:15px;
-}
-
-.card p{
-    color:#94a3b8;
-    line-height:1.8;
-}
-
-.info-grid{
-    margin-top:35px;
-    display:grid;
-    gap:16px;
-}
-
-.info-box{
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.05);
-    padding:18px;
-    border-radius:16px;
-}
-
-/* SECTIONS */
-
-section{
-    padding:110px 8%;
-}
-
-.title{
-    text-align:center;
-    margin-bottom:70px;
-}
-
-.title h2{
-    font-size:58px;
-    margin-bottom:15px;
-}
-
-.title p{
-    color:#94a3b8;
-    font-size:17px;
-}
-
-/* SKILLS */
-
-.skills{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:28px;
-}
-
-.skill-card{
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.06);
-    padding:35px;
-    border-radius:26px;
-    transition:.4s;
-    position:relative;
-    overflow:hidden;
-}
-
-.skill-card::before{
-    content:'';
-    position:absolute;
-    width:100%;
-    height:5px;
-    left:0;
-    top:0;
-    background:linear-gradient(to right,#8b5cf6,#06b6d4);
-}
-
-.skill-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 25px 40px rgba(0,0,0,.4);
-}
-
-.skill-icon{
-    font-size:45px;
-    margin-bottom:18px;
-}
-
-.skill-card h3{
-    font-size:28px;
-    margin-bottom:12px;
-}
-
-.skill-card p{
-    color:#94a3b8;
-    line-height:1.8;
-}
-
-/* SERVICES */
-
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:28px;
-}
-
-.service{
-    padding:35px;
-    border-radius:28px;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.06);
-    transition:.4s;
-}
-
-.service:hover{
-    transform:translateY(-10px);
-}
-
-.service h3{
-    font-size:28px;
-    margin-bottom:15px;
-}
-
-.service p{
-    color:#94a3b8;
-    line-height:1.9;
-}
-
-/* PROJECTS */
-
-.projects{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-}
-
-.project{
-    padding:38px;
-    border-radius:30px;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.06);
-    transition:.4s;
-    position:relative;
-    overflow:hidden;
-}
-
-.project::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(135deg,rgba(139,92,246,.15),rgba(6,182,212,.06));
-    opacity:0;
-    transition:.4s;
-}
-
-.project:hover::before{
-    opacity:1;
-}
-
-.project:hover{
-    transform:translateY(-12px);
-}
-
-.project h3{
-    font-size:30px;
-    margin-bottom:15px;
-    position:relative;
-    z-index:2;
-}
-
-.project p{
-    color:#94a3b8;
-    line-height:1.8;
-    position:relative;
-    z-index:2;
-}
-
-/* CONTACT */
-
-.contact{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-    padding:60px;
-    border-radius:35px;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.06);
-}
-
-.contact h2{
-    font-size:55px;
-    margin-bottom:20px;
-}
-
-.contact p{
-    color:#94a3b8;
-    line-height:1.9;
-    margin-bottom:35px;
-}
-
-.contact-buttons{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-/* FOOTER */
-
-footer{
-    padding:35px;
-    text-align:center;
-    color:#94a3b8;
-    border-top:1px solid rgba(255,255,255,.06);
-    margin-top:80px;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:950px){
-
-    .hero{
-        text-align:center;
-        justify-content:center;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md Afkar Ahmad · Full Stack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: #070a1a;
+      color: #f0f4ff;
+      overflow-x: hidden;
     }
 
-    .buttons{
-        justify-content:center;
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.45;
+    }
+    .glow-1 {
+      width: 450px;
+      height: 450px;
+      background: #7c3aed;
+      top: -160px;
+      left: -120px;
+    }
+    .glow-2 {
+      width: 400px;
+      height: 400px;
+      background: #0891b2;
+      right: -100px;
+      top: 200px;
+    }
+    .glow-3 {
+      width: 360px;
+      height: 360px;
+      background: #db2777;
+      bottom: -80px;
+      left: 30%;
     }
 
-    .left h1{
-        font-size:54px;
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      padding: 20px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(7, 10, 26, 0.7);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      background: linear-gradient(130deg, #a78bfa, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+    nav ul a {
+      text-decoration: none;
+      color: #cbd5e1;
+      font-weight: 500;
+      font-size: 15px;
+      transition: 0.25s;
+      letter-spacing: 0.2px;
+      position: relative;
+    }
+    nav ul a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #a78bfa, #22d3ee);
+      transition: 0.3s;
+    }
+    nav ul a:hover {
+      color: white;
+    }
+    nav ul a:hover::after {
+      width: 100%;
     }
 
-    nav ul{
-        display:none;
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 140px 6% 60px;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+    .left {
+      flex: 1 1 300px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      border-radius: 60px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      color: #b9c7e0;
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 30px;
+      backdrop-filter: blur(4px);
+    }
+    .badge i {
+      color: #a78bfa;
+    }
+    .left h1 {
+      font-size: clamp(44px, 8vw, 82px);
+      line-height: 1.05;
+      font-weight: 800;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+    .gradient {
+      background: linear-gradient(135deg, #a78bfa, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .left p {
+      font-size: 18px;
+      color: #94a3b8;
+      line-height: 1.8;
+      max-width: 580px;
+      margin-bottom: 42px;
+      font-weight: 400;
+    }
+    .buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 16px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.3s ease;
+      border: 1px solid transparent;
+      font-size: 15px;
+      letter-spacing: 0.2px;
+    }
+    .primary {
+      background: linear-gradient(135deg, #7c3aed, #0891b2);
+      color: white;
+      box-shadow: 0 12px 30px -6px rgba(124, 58, 237, 0.35);
+    }
+    .primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -8px rgba(124, 58, 237, 0.5);
+    }
+    .secondary {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+    }
+    .secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-4px);
     }
 
-    .title h2{
-        font-size:42px;
+    /* TECH STACK CARD */
+    .right {
+      flex: 1 1 340px;
+      display: flex;
+      justify-content: center;
+    }
+    .tech-card {
+      width: 100%;
+      max-width: 440px;
+      padding: 36px 32px;
+      border-radius: 40px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+      transition: 0.3s;
+    }
+    .tech-card:hover {
+      border-color: rgba(167, 139, 250, 0.25);
+    }
+    .tech-card .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .tech-card .header-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(34, 211, 238, 0.10));
+      border: 1px solid rgba(167, 139, 250, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #a78bfa;
+      flex-shrink: 0;
+    }
+    .tech-card .header-text h3 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .tech-card .header-text p {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+    .tech-item {
+      margin-bottom: 18px;
+    }
+    .tech-item:last-child {
+      margin-bottom: 0;
+    }
+    .tech-item .tech-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #cbd5e1;
+    }
+    .tech-item .tech-label span:last-child {
+      color: #a78bfa;
+      font-weight: 600;
+    }
+    .tech-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    .tech-bar .fill {
+      height: 100%;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #7c3aed, #22d3ee);
+      width: 0%;
+      transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative;
+    }
+    .tech-bar .fill::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 20px;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2));
+      border-radius: 20px;
+    }
+    .tech-card:hover .fill {
+      width: var(--width) !important;
+    }
+    .tech-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.04);
+      margin: 20px 0;
+    }
+    .tech-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+    }
+    .tech-footer .stats {
+      display: flex;
+      gap: 20px;
+    }
+    .tech-footer .stats span {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+    .tech-footer .stats i {
+      color: #a78bfa;
+      margin-right: 6px;
+    }
+    .tech-footer .cta-link {
+      color: #a78bfa;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      opacity: 0.6;
+      transition: 0.3s;
+    }
+    .tech-footer .cta-link:hover {
+      opacity: 1;
     }
 
-    .contact h2{
-        font-size:40px;
+    section {
+      padding: 100px 6% 40px;
+    }
+    .title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    .title h2 {
+      font-size: clamp(38px, 6vw, 58px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .title p {
+      color: #94a3b8;
+      font-size: 17px;
+      font-weight: 400;
     }
 
-}
-
-@media(max-width:600px){
-
-    .left h1{
-        font-size:43px;
+    /* SKILLS - PILL STYLE */
+    .skills-pill-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .skill-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 16px 32px 16px 24px;
+      border-radius: 80px;
+      transition: 0.3s ease;
+      backdrop-filter: blur(4px);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .skill-pill::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 80px;
+      padding: 2px;
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(34, 211, 238, 0.10));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .skill-pill:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(167, 139, 250, 0.3);
+      box-shadow: 0 0 30px -10px rgba(124, 58, 237, 0.2);
+    }
+    .skill-pill .pill-icon {
+      font-size: 26px;
+      color: #c4b5fd;
+      width: 40px;
+      text-align: center;
+      flex-shrink: 0;
+      transition: 0.3s;
+    }
+    .skill-pill:hover .pill-icon {
+      color: #a78bfa;
+    }
+    .skill-pill .pill-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.3;
+    }
+    .skill-pill .pill-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #f0f4ff;
+      letter-spacing: -0.2px;
+    }
+    .skill-pill .pill-desc {
+      font-size: 13px;
+      color: #94a3b8;
+      font-weight: 400;
+      opacity: 0.85;
+    }
+    .skill-pill .pill-glow {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.1), transparent 70%);
+      top: -30px;
+      right: -20px;
+      pointer-events: none;
+      transition: 0.5s;
+      opacity: 0;
+    }
+    .skill-pill:hover .pill-glow {
+      opacity: 1;
     }
 
-    .card{
-        width:90%;
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .service-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 34px 28px;
+      border-radius: 32px;
+      transition: 0.3s ease;
+      backdrop-filter: blur(4px);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #7c3aed, #22d3ee);
+      opacity: 0;
+      transition: 0.4s;
+    }
+    .service-card:hover::before {
+      opacity: 0.8;
+    }
+    .service-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(167, 139, 250, 0.2);
+      box-shadow: 0 0 40px -15px rgba(124, 58, 237, 0.15);
+    }
+    .service-card .service-icon {
+      font-size: 42px;
+      color: #a78bfa;
+      margin-bottom: 18px;
+      display: block;
+      transition: 0.3s;
+    }
+    .service-card:hover .service-icon {
+      color: #c4b5fd;
+    }
+    .service-card h3 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: -0.2px;
+    }
+    .service-card p {
+      color: #94a3b8;
+      line-height: 1.8;
+    }
+    .service-card .service-number {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      font-size: 48px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.03);
+      letter-spacing: -2px;
+      user-select: none;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+    .service-card:hover .service-number {
+      color: rgba(167, 139, 250, 0.08);
     }
 
-    .title h2{
-        font-size:36px;
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .project-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 36px 28px;
+      border-radius: 32px;
+      transition: 0.3s ease;
+      backdrop-filter: blur(4px);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0), rgba(34, 211, 238, 0));
+      transition: 0.5s;
+      z-index: -1;
+    }
+    .project-card:hover::after {
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.12), rgba(34, 211, 238, 0.08));
+    }
+    .project-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(167, 139, 250, 0.2);
+      box-shadow: 0 0 40px -15px rgba(124, 58, 237, 0.15);
+    }
+    .project-card .project-icon {
+      font-size: 32px;
+      color: #a78bfa;
+      margin-bottom: 16px;
+      display: block;
+      transition: 0.3s;
+    }
+    .project-card:hover .project-icon {
+      color: #c4b5fd;
+    }
+    .project-card .project-tag {
+      display: inline-block;
+      background: rgba(167, 139, 250, 0.10);
+      border: 1px solid rgba(167, 139, 250, 0.12);
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #a78bfa;
+      margin-bottom: 14px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    .project-card h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.2px;
+    }
+    .project-card p {
+      color: #94a3b8;
+      line-height: 1.8;
+    }
+    .project-card .project-arrow {
+      display: inline-block;
+      margin-top: 16px;
+      color: #a78bfa;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0.5;
+      transition: 0.3s;
+    }
+    .project-card:hover .project-arrow {
+      opacity: 1;
     }
 
-}
+    .contact-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 60px 40px;
+      border-radius: 48px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+    }
+    .contact-wrap h2 {
+      font-size: clamp(34px, 5vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+    .contact-wrap p {
+      color: #94a3b8;
+      line-height: 1.9;
+      margin-bottom: 40px;
+      font-size: 17px;
+    }
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-</style>
+    /* ===== SLIDESHOW SECTION ===== */
+    .slideshow-section {
+      padding: 80px 6% 60px;
+      background: rgba(255, 255, 255, 0.01);
+    }
+    .slideshow-container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      border-radius: 40px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.5);
+    }
+    .slideshow-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 40px;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .slide {
+      min-width: 100%;
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .slide .slide-icon {
+      font-size: 56px;
+      color: #a78bfa;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .slide h3 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+    .slide p {
+      color: #94a3b8;
+      line-height: 1.8;
+      font-size: 17px;
+      max-width: 600px;
+    }
+    .slide .slide-tag {
+      display: inline-block;
+      background: rgba(167, 139, 250, 0.10);
+      border: 1px solid rgba(167, 139, 250, 0.12);
+      padding: 6px 20px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #a78bfa;
+      margin-top: 16px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Slideshow controls */
+    .slide-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      padding: 24px 20px 30px;
+      background: rgba(255, 255, 255, 0.02);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .slide-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: #cbd5e1;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-btn:hover {
+      background: rgba(167, 139, 250, 0.15);
+      border-color: rgba(167, 139, 250, 0.3);
+      color: #a78bfa;
+      transform: scale(1.05);
+    }
+    .slide-dots {
+      display: flex;
+      gap: 10px;
+    }
+    .slide-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+      transition: 0.3s ease;
+      padding: 0;
+    }
+    .slide-dot.active {
+      background: linear-gradient(135deg, #7c3aed, #22d3ee);
+      width: 28px;
+      border-radius: 10px;
+    }
+    .slide-dot:hover {
+      background: rgba(167, 139, 250, 0.4);
+    }
+    .slide-counter {
+      font-size: 14px;
+      color: #64748b;
+      font-weight: 500;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    footer {
+      padding: 40px 6% 30px;
+      text-align: center;
+      color: #64748b;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      margin-top: 40px;
+      font-size: 15px;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 120px;
+      }
+      .left p {
+        max-width: 100%;
+      }
+      .buttons {
+        justify-content: center;
+      }
+      .right {
+        width: 100%;
+      }
+      .tech-card {
+        max-width: 480px;
+        margin: 0 auto;
+      }
+      nav ul {
+        gap: 20px;
+      }
+      nav ul a {
+        font-size: 14px;
+      }
+      .skill-pill {
+        padding: 14px 24px 14px 18px;
+        width: 100%;
+        max-width: 320px;
+      }
+      .skill-pill .pill-name {
+        font-size: 16px;
+      }
+      .slide {
+        padding: 35px 24px;
+      }
+      .slide h3 {
+        font-size: 26px;
+      }
+      .slide p {
+        font-size: 15px;
+      }
+    }
+    @media (max-width: 500px) {
+      nav {
+        padding: 16px 5%;
+      }
+      .logo {
+        font-size: 24px;
+      }
+      nav ul {
+        gap: 14px;
+      }
+      nav ul a {
+        font-size: 13px;
+      }
+      .badge {
+        font-size: 13px;
+        padding: 8px 18px;
+      }
+      .left h1 {
+        font-size: 38px;
+      }
+      .btn {
+        padding: 14px 24px;
+        font-size: 14px;
+      }
+      .tech-card {
+        padding: 24px 18px;
+      }
+      .contact-wrap {
+        padding: 36px 18px;
+      }
+      .skill-pill {
+        padding: 12px 18px;
+        gap: 10px;
+      }
+      .skill-pill .pill-icon {
+        font-size: 20px;
+        width: 30px;
+      }
+      .skill-pill .pill-name {
+        font-size: 15px;
+      }
+      .skill-pill .pill-desc {
+        font-size: 12px;
+      }
+      .service-card .service-number {
+        font-size: 32px;
+        top: 8px;
+        right: 14px;
+      }
+      .tech-footer {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .slide {
+        padding: 28px 18px;
+      }
+      .slide .slide-icon {
+        font-size: 40px;
+      }
+      .slide h3 {
+        font-size: 22px;
+      }
+      .slide-controls {
+        gap: 14px;
+        padding: 18px 14px 22px;
+        flex-wrap: wrap;
+      }
+      .slide-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="background">
-    <div class="blur blur1"></div>
-    <div class="blur blur2"></div>
-    <div class="blur blur3"></div>
+<div class="bg-glow">
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="glow glow-3"></div>
 </div>
-
-<!-- NAVBAR -->
 
 <nav>
-
-    <div class="logo">
-        Afkar.
-    </div>
-
-    <ul>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-
+  <div class="logo">Afkar.</div>
+  <ul>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<!-- HERO -->
-
 <div class="hero">
-
-    <div class="left">
-
-<div class="badge">
-    <i class="fa-solid fa-code"></i>
-    Frontend & Basic Backend Developer
-</div>
-
-        <h1>
-            Hii, i'm <span class="gradient">Md Afkar Ahmad.</span>
-        </h1>
-
-        <p>
-            A passionate student
-            and web developer who creates responsive websites, authentication systems,
-            backend integrations, form management systems and interactive web apps
-            using HTML, CSS, JavaScript and SQL.
-        </p>
-
-        <div class="buttons">
-
-            <a href="https://wa.me/919395737512" class="btn primary">
-                Contact on WhatsApp
-            </a>
-
-            <a href="https://instagram.com/mdafkarahmad" target="_blank" class="btn secondary">
-                Instagram Profile
-            </a>
-
-        </div>
-
+  <div class="left">
+    <div class="badge">
+      <i class="fa-solid fa-code"></i> Full Stack &amp; UI Developer
     </div>
-
-    <div class="right">
-
-        <div class="card">
-
-            <div class="card-content">
-
-<div class="profile">
-    <i class="fa-solid fa-user"></i>
-</div>
-
-                <h2>Developer Profile</h2>
-
-                <p>
-                    I focus on building premium websites with modern UI,
-                    responsive layouts, smooth animations and basic backend
-                    functionality like authentication, APIs and form handling.
-                </p>
-
-                <div class="info-grid">
-
-<div class="info-box">
-    <i class="fa-solid fa-envelope"></i>
-    mdafkarahmad@gmail.com
-</div>
-
-<div class="info-box">
-    <i class="fa-solid fa-graduation-cap"></i>
-    Currently studying in Class 12th
-</div>
-
-<div class="info-box">
-    <i class="fa-solid fa-laptop-code"></i>
-    HTML • CSS • JavaScript • SQL
-</div>
-
-<div class="info-box">
-    <i class="fa-solid fa-database"></i>
-    APIs • Authentication • Forms • UI Design
-</div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+    <h1>
+      Hi, I'm <span class="gradient">Md Afkar Ahmad</span>
+    </h1>
+    <p>
+      A passionate student &amp; web developer. I build responsive websites,
+      authentication systems, backend APIs, and interactive web apps with
+      HTML, CSS, JavaScript, Node.js, PHP and SQL.
+    </p>
+    <div class="buttons">
+      <a href="https://wa.me/919395737512" class="btn primary">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://instagram.com/mdafkarahmad" target="_blank" class="btn secondary">
+        <i class="fa-brands fa-instagram"></i> Instagram
+      </a>
     </div>
+  </div>
 
+  <div class="right">
+    <div class="tech-card">
+      <div class="header">
+        <div class="header-icon">
+          <i class="fa-solid fa-layer-group"></i>
+        </div>
+        <div class="header-text">
+          <h3>Tech Stack</h3>
+          <p>Proficiency &amp; daily tools</p>
+        </div>
+      </div>
+
+      <div class="tech-item">
+        <div class="tech-label">
+          <span>HTML / CSS</span>
+          <span>95%</span>
+        </div>
+        <div class="tech-bar">
+          <div class="fill" style="--width: 95%; width: 0%;"></div>
+        </div>
+      </div>
+
+      <div class="tech-item">
+        <div class="tech-label">
+          <span>JavaScript</span>
+          <span>85%</span>
+        </div>
+        <div class="tech-bar">
+          <div class="fill" style="--width: 85%; width: 0%;"></div>
+        </div>
+      </div>
+
+      <div class="tech-item">
+        <div class="tech-label">
+          <span>Node.js</span>
+          <span>75%</span>
+        </div>
+        <div class="tech-bar">
+          <div class="fill" style="--width: 75%; width: 0%;"></div>
+        </div>
+      </div>
+
+      <div class="tech-item">
+        <div class="tech-label">
+          <span>PHP</span>
+          <span>70%</span>
+        </div>
+        <div class="tech-bar">
+          <div class="fill" style="--width: 70%; width: 0%;"></div>
+        </div>
+      </div>
+
+      <div class="tech-item">
+        <div class="tech-label">
+          <span>SQL</span>
+          <span>75%</span>
+        </div>
+        <div class="tech-bar">
+          <div class="fill" style="--width: 75%; width: 0%;"></div>
+        </div>
+      </div>
+
+      <div class="tech-divider"></div>
+
+      <div class="tech-footer">
+        <div class="stats">
+          <span><i class="fa-regular fa-clock"></i> 2+ years</span>
+          <span><i class="fa-regular fa-folder"></i> 12+ projects</span>
+        </div>
+        <a href="#projects" class="cta-link">View work →</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- SKILLS -->
-
 <section id="skills">
-
-    <div class="title">
-        <h2><span class="gradient">Skills</span></h2>
-        <p>Technologies and development skills I work with</p>
+  <div class="title">
+    <h2><span class="gradient">Skills</span></h2>
+    <p>Technologies &amp; tools I work with daily</p>
+  </div>
+  <div class="skills-pill-wrap">
+    <div class="skill-pill">
+      <div class="pill-glow"></div>
+      <span class="pill-icon"><i class="fa-brands fa-html5"></i></span>
+      <div class="pill-info">
+        <span class="pill-name">HTML</span>
+        <span class="pill-desc">Semantic &amp; accessible</span>
+      </div>
     </div>
-
-    <div class="skills">
-
-        <div class="skill-card">
-<div class="skill-icon">
-    <i class="fa-brands fa-css3-alt"></i>
-</div>
-            <h3>HTML</h3>
-            <p>
-                Building semantic, SEO-friendly and responsive website structures.
-            </p>
-        </div>
-
-        <div class="skill-card">
-<div class="skill-icon">
-    <i class="fa-brands fa-css3-alt"></i>
-</div>
-            <h3>CSS</h3>
-            <p>
-                Creating modern premium interfaces with animations and responsive layouts.
-            </p>
-        </div>
-
-        <div class="skill-card">
-<div class="skill-icon">
-    <i class="fa-brands fa-js"></i>
-</div>
-<h3>JavaScript</h3>
-            <p>
-                Developing dynamic interactions, DOM features and app functionality.
-            </p>
-        </div>
-
-
-  <div class="skill-card">
-<div class="skill-icon">
-    <i class="fa-brands fa-node-js"></i>
-</div>
-<h3>Node.js</h3>
-            <p>
-                Building scalable backend applications, REST APIs, authentication system and server-side logic.
-            </p>
-        </div>
-
-
-
-        
-  <div class="skill-card">
-<div class="skill-icon">
-    <i class="fa-brands fa-php"></i>
-</div>
-<h3>PHP</h3>
-            <p>
-                Server-side Web Applications with PHP.
-            </p>
-        </div>
-
-  <div class="skill-card">
-<div class="skill-icon">
-    <i class="fa-solid fa-microchip"></i>
-</div>
-<h3>AI</h3>
-            <p>
-                I'm experienced in integrating AI tools into development to improve productivity and code quality.
-            </p>
-        </div>
-
-
-
-        
-        <div class="skill-card">
-<div class="skill-icon">
-    <i class="fa-solid fa-database"></i>
-</div>
-            <h3>SQL</h3>
-            <p>
-                Managing structured databases and handling backend data operations.
-            </p>
-        </div>
-
+    <div class="skill-pill">
+      <div class="pill-glow"></div>
+      <span class="pill-icon"><i class="fa-brands fa-css3-alt"></i></span>
+      <div class="pill-info">
+        <span class="pill-name">CSS</span>
+        <span class="pill-desc">Animations &amp; responsive</span>
+      </div>
     </div>
-
+    <div class="skill-pill">
+      <div class="pill-glow"></div>
+      <span class="pill-icon"><i class="fa-brands fa-js"></i></span>
+      <div class="pill-info">
+        <span class="pill-name">JavaScript</span>
+        <span class="pill-desc">Dynamic &amp; interactive</span>
+      </div>
+    </div>
+    <div class="skill-pill">
+      <div class="pill-glow"></div>
+      <span class="pill-icon"><i class="fa-brands fa-node-js"></i></span>
+      <div class="pill-info">
+        <span class="pill-name">Node.js</span>
+        <span class="pill-desc">APIs &amp; authentication</span>
+      </div>
+    </div>
+    <div class="skill-pill">
+      <div class="pill-glow"></div>
+      <span class="pill-icon"><i class="fa-brands fa-php"></i></span>
+      <div class="pill-info">
+        <span class="pill-name">PHP</span>
+        <span class="pill-desc">Server-side logic</span>
+      </div>
+    </div>
+    <div class="skill-pill">
+      <div class="pill-glow"></div>
+      <span class="pill-icon"><i class="fa-solid fa-database"></i></span>
+      <div class="pill-info">
+        <span class="pill-name">SQL</span>
+        <span class="pill-desc">Database management</span>
+      </div>
+    </div>
+    <div class="skill-pill">
+      <div class="pill-glow"></div>
+      <span class="pill-icon"><i class="fa-regular fa-brain"></i></span>
+      <div class="pill-info">
+        <span class="pill-name">AI Tools</span>
+        <span class="pill-desc">Productivity &amp; code</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SERVICES -->
-
 <section id="services">
-
-    <div class="title">
-        <h2><span class="gradient">What I Can Build</span></h2>
-        <p>Frontend and backend related web development services</p>
+  <div class="title">
+    <h2><span class="gradient">What I Build</span></h2>
+    <p>Full‑cycle services from frontend to backend</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-number">01</span>
+      <span class="service-icon"><i class="fa-solid fa-globe"></i></span>
+      <h3>Responsive Websites</h3>
+      <p>Mobile‑first, premium UI, fast &amp; fluid layouts that work on every device.</p>
     </div>
-
-    <div class="services">
-
-        <div class="service">
-            <h3>Responsive Websites</h3>
-            <p>
-                Modern websites optimized for mobile, tablet and desktop devices
-                with premium user experience.
-            </p>
-        </div>
-
-        <div class="service">
-            <h3>Authentication Systems</h3>
-            <p>
-                Login and signup systems with validation, authentication
-                flow and secure user management.
-            </p>
-        </div>
-
-        <div class="service">
-            <h3>Form Management</h3>
-            <p>
-                Interactive forms with validation, user input handling
-                and backend integration support.
-            </p>
-        </div>
-
-        <div class="service">
-            <h3>Backend APIs</h3>
-            <p>
-                Working with APIs, dynamic data handling and integrating
-                backend services into websites.
-            </p>
-        </div>
-
-        <div class="service">
-            <h3>UI/UX Design</h3>
-            <p>
-                Designing modern interfaces with smooth layouts,
-                animations and clean user experience.
-            </p>
-        </div>
-
-        <div class="service">
-            <h3>Interactive Web Apps</h3>
-            <p>
-                Creating JavaScript powered apps and interactive
-                browser experiences.
-            </p>
-        </div>
-
+    <div class="service-card">
+      <span class="service-number">02</span>
+      <span class="service-icon"><i class="fa-solid fa-lock"></i></span>
+      <h3>Authentication</h3>
+      <p>Login/signup systems with validation, secure user flows and session management.</p>
     </div>
-
+    <div class="service-card">
+      <span class="service-number">03</span>
+      <span class="service-icon"><i class="fa-solid fa-pen-to-square"></i></span>
+      <h3>Form Management</h3>
+      <p>Interactive forms with validation, user input handling and backend integration.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-number">04</span>
+      <span class="service-icon"><i class="fa-solid fa-cloud"></i></span>
+      <h3>Backend APIs</h3>
+      <p>RESTful endpoints, dynamic data handling and third‑party integrations.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-number">05</span>
+      <span class="service-icon"><i class="fa-solid fa-palette"></i></span>
+      <h3>UI/UX Design</h3>
+      <p>Modern interfaces with smooth animations, clean layouts and intuitive flow.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-number">06</span>
+      <span class="service-icon"><i class="fa-solid fa-cubes"></i></span>
+      <h3>Interactive Apps</h3>
+      <p>JavaScript powered apps with dynamic content and engaging user experiences.</p>
+    </div>
+  </div>
 </section>
 
 <!-- PROJECTS -->
-
 <section id="projects">
-
-    <div class="title">
-        <h2><span class="gradient">Projects</span></h2>
-        <p>Some projects and applications I have worked on</p>
+  <div class="title">
+    <h2><span class="gradient">Projects</span></h2>
+    <p>Some of the things I've built recently</p>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <span class="project-icon"><i class="fa-regular fa-comment-dots"></i></span>
+      <span class="project-tag">AI / Chat</span>
+      <h3>AI Bot</h3>
+      <p>Smart chatbot interface with interactive responses and modern frontend design.</p>
+      <span class="project-arrow">Explore →</span>
     </div>
-
-    <div class="projects">
-
-        <div class="project">
-            <h3>AI Bot</h3>
-            <p>
-                Smart AI chatbot interface with interactive responses
-                and modern frontend design.
-            </p>
-        </div>
-
-        <div class="project">
-            <h3>E-commerce Website</h3>
-            <p>
-                Responsive shopping website with product cards,
-                clean layouts and modern UI.
-            </p>
-        </div>
-
-        <div class="project">
-            <h3>Authentication System</h3>
-            <p>
-                Login and signup system with form validation
-                and secure authentication logic.
-            </p>
-        </div>
-
-        <div class="project">
-            <h3>To-Do List App</h3>
-            <p>
-                Dynamic task management application using
-                JavaScript DOM manipulation.
-            </p>
-        </div>
-
-        <div class="project">
-            <h3>Snake Game</h3>
-            <p>
-                JavaScript browser game with responsive controls
-                and smooth gameplay.
-            </p>
-        </div>
-
-        <div class="project">
-            <h3>Social Media UI</h3>
-            <p>
-                Modern social platform inspired UI with responsive
-                components and animations.
-            </p>
-        </div>
-
+    <div class="project-card">
+      <span class="project-icon"><i class="fa-solid fa-cart-shopping"></i></span>
+      <span class="project-tag">E-commerce</span>
+      <h3>E‑commerce UI</h3>
+      <p>Responsive shopping experience with product cards, clean layout and modern UI.</p>
+      <span class="project-arrow">Explore →</span>
     </div>
-
+    <div class="project-card">
+      <span class="project-icon"><i class="fa-solid fa-user-check"></i></span>
+      <span class="project-tag">Security</span>
+      <h3>Auth System</h3>
+      <p>Complete login/signup system with validation and secure authentication logic.</p>
+      <span class="project-arrow">Explore →</span>
+    </div>
+    <div class="project-card">
+      <span class="project-icon"><i class="fa-solid fa-list-check"></i></span>
+      <span class="project-tag">Productivity</span>
+      <h3>To‑Do App</h3>
+      <p>Dynamic task manager using JavaScript DOM manipulation with local storage.</p>
+      <span class="project-arrow">Explore →</span>
+    </div>
+    <div class="project-card">
+      <span class="project-icon"><i class="fa-solid fa-gamepad"></i></span>
+      <span class="project-tag">Game</span>
+      <h3>Snake Game</h3>
+      <p>Classic browser game with responsive controls, smooth gameplay and score tracking.</p>
+      <span class="project-arrow">Explore →</span>
+    </div>
+    <div class="project-card">
+      <span class="project-icon"><i class="fa-regular fa-image"></i></span>
+      <span class="project-tag">Social</span>
+      <h3>Social UI</h3>
+      <p>Modern social platform inspired design with responsive components and animations.</p>
+      <span class="project-arrow">Explore →</span>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
-
 <section id="contact">
-
-    <div class="contact">
-
-        <h2><span class="gradient">Let's Build Something Amazing</span></h2>
-
-        <p>
-            Looking for a modern website, interactive frontend,
-            authentication system or backend integration?
-            Feel free to contact me for collaboration and projects.
-        </p>
-
-        <div class="contact-buttons">
-
-<a href="https://wa.me/919395737512" class="btn primary">
-    <i class="fa-brands fa-whatsapp"></i>
-    Contact on WhatsApp
-</a>
-
-<a href="https://instagram.com/mdafkarahmad" target="_blank" class="btn secondary">
-    <i class="fa-brands fa-instagram"></i>
-    Instagram Profile
-</a>
-
-        </div>
-
+  <div class="contact-wrap">
+    <h2><span class="gradient">Let's Build Together</span></h2>
+    <p>
+      Need a modern website, authentication, backend integration, or a full‑stack app?
+      Reach out — I'd love to collaborate.
+    </p>
+    <div class="contact-buttons">
+      <a href="https://wa.me/919395737512" class="btn primary">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://instagram.com/mdafkarahmad" target="_blank" class="btn secondary">
+        <i class="fa-brands fa-instagram"></i> Instagram
+      </a>
     </div>
+  </div>
+</section>
 
+<!-- ===== SLIDESHOW SECTION ===== -->
+<section class="slideshow-section" id="slideshow">
+  <div class="title">
+    <h2><span class="gradient">Featured Work</span></h2>
+    <p>Some highlights from my portfolio</p>
+  </div>
+  <div class="slideshow-container">
+    <div class="slideshow-wrapper">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <span class="slide-icon"><i class="fa-solid fa-robot"></i></span>
+          <h3>AI Chatbot</h3>
+          <p>An intelligent chatbot with natural language processing, built with modern JavaScript and a sleek dark theme interface.</p>
+          <span class="slide-tag">✦ AI / JavaScript</span>
+        </div>
+        <div class="slide">
+          <span class="slide-icon"><i class="fa-solid fa-store"></i></span>
+          <h3>E-Commerce Platform</h3>
+          <p>Full-featured shopping platform with product listings, cart functionality, and a responsive checkout experience.</p>
+          <span class="slide-tag">✦ React / Node.js</span>
+        </div>
+        <div class="slide">
+          <span class="slide-icon"><i class="fa-solid fa-shield-halved"></i></span>
+          <h3>Secure Auth System</h3>
+          <p>Complete authentication system with JWT tokens, password hashing, session management, and role-based access control.</p>
+          <span class="slide-tag">✦ Node.js / MongoDB</span>
+        </div>
+        <div class="slide">
+          <span class="slide-icon"><i class="fa-solid fa-mobile-screen"></i></span>
+          <h3>Responsive Dashboard</h3>
+          <p>Beautiful admin dashboard with data visualization, real-time updates, and a fully responsive design for all devices.</p>
+          <span class="slide-tag">✦ Vue.js / Tailwind</span>
+        </div>
+      </div>
+    </div>
+    <div class="slide-controls">
+      <button class="slide-btn" id="prevBtn" aria-label="Previous slide">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div class="slide-dots" id="dotsContainer">
+        <button class="slide-dot active" data-index="0" aria-label="Slide 1"></button>
+        <button class="slide-dot" data-index="1" aria-label="Slide 2"></button>
+        <button class="slide-dot" data-index="2" aria-label="Slide 3"></button>
+        <button class="slide-dot" data-index="3" aria-label="Slide 4"></button>
+      </div>
+      <button class="slide-btn" id="nextBtn" aria-label="Next slide">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
 </section>
 
 <footer>
-    © 2026 Md Afkar Ahmad • Full Stack Web Developer
+  © 2026 Md Afkar Ahmad · Full Stack Web Developer
 </footer>
+
+<script>
+  // ===== SLIDESHOW LOGIC =====
+  (function() {
+    const slides = document.getElementById('slides');
+    const dots = document.querySelectorAll('.slide-dot');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+    const totalSlides = dots.length;
+    let autoPlayInterval;
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // Update dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentIndex - 1);
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayInterval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = null;
+      }
+    }
+
+    // Event listeners
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      startAutoPlay();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      startAutoPlay();
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index'));
+        goToSlide(index);
+        startAutoPlay();
+      });
+    });
+
+    // Pause on hover
+    const container = document.querySelector('.slideshow-container');
+    container.addEventListener('mouseenter', stopAutoPlay);
+    container.addEventListener('mouseleave', startAutoPlay);
+
+    // Start autoplay
+    startAutoPlay();
+
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        nextSlide();
+        startAutoPlay();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+        startAutoPlay();
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    container.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    container.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+        startAutoPlay();
+      }
+    }, { passive: true });
+  })();
+</script>
 
 </body>
 </html>
